@@ -35,7 +35,7 @@ class linklist_of_array:
             curr.next=preNode
             preNode =curr
             curr=nextNode
-            
+
         self.head=preNode
         itr=self.head
         listr=[]
@@ -50,9 +50,15 @@ class linklist_of_array:
             self.insert_array(i)
 
 
-li=linklist_of_array()
-li.list_of_arr(["sejan","sajal","babu"])
-li.list_of_arr([3,4,5,6,6,66,7,7,88,48,84,8,38,28])
+# li=linklist_of_array()
+# li.list_of_arr(["sejan","sajal","babu"])
+# li.list_of_arr([3,4,5,6,6,66,7,7,88,48,84,8,38,28])
 
-li.printArray()
-li.reverseLinklist()
+# li.printArray()
+# li.reverseLinklist()
+
+
+arr=[]
+for i in range(10000,30000):
+    arr.append(i)
+print(arr)

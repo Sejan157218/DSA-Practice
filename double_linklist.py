@@ -20,18 +20,41 @@ class DoubleLinklist:
             temp.next=Node(data,temp)
             self.temp=temp.next
            
+    def insert_at_begging(self,data):
+        head=self.head
+        newNode=Node(data)
+        head.prev=newNode
+        newNode.next=head
+        self.head=newNode
+
+    def insert_by_index(self,index,data):
+        head=self.head
+        count=0
+        while count<index-1:
+            count+=1
+            head=head.next
+        newNode=Node(data)
+        head.next.prev=newNode
+        newNode.next=head.next
+        newNode.prev=head
+        head.next=newNode
 
 
-                
+            
             
     def printLink(self):
         head=self.head
+        arr=[]
+        preArr=[]
         while head:
+            arr.append(head.data)
             previous=head.prev
-            print("head",head.data)
             if previous:
-                print("ff",previous.data)
+                preArr.append(previous.data)
+            else:
+                preArr.append(None)   
             head=head.next
+        print(arr,"prev",preArr)
 
 
 
@@ -43,4 +66,6 @@ dLink.insert_data(3)
 dLink.insert_data(4)
 dLink.insert_data(5)
 dLink.insert_data(6)
+dLink.insert_at_begging(11)
+dLink.insert_by_index(3,22)
 dLink.printLink()

@@ -7,18 +7,18 @@ class Node:
 class DoubleLinklist:
     def __init__(self):
         self.head=None
-        self.temp=None
+        self.tail=None
 
 
     def insert_data(self,data):
         if self.head is None:
             newNode=Node(data)
             self.head=newNode
-            self.temp=newNode
+            self.tail=newNode
         else:
-            temp=self.temp
-            temp.next=Node(data,temp)
-            self.temp=temp.next
+            tail=self.tail
+            tail.next=Node(data,tail)
+            self.tail=tail.next
            
     def insert_at_begging(self,data):
         head=self.head
@@ -60,7 +60,23 @@ class DoubleLinklist:
             temp.next.prev=temp.prev
             del(temp)
             
-            
+    def reverse_double_linkedlist(self):
+        curr=self.head
+        while curr:
+            nextNode=curr.next
+            curr.next=curr.prev
+            curr.prev=nextNode
+            curr=nextNode
+   
+        currnt=self.head
+        self.head=self.tail
+        self.tail=currnt
+        
+        
+
+
+
+
     def printLink(self):
         head=self.head
         arr=[]
@@ -90,4 +106,6 @@ dLink.insert_by_index(3,22)
 dLink.delete_beginning()
 dLink.printLink()
 dLink.delete_by_index(3)
+dLink.printLink()
+dLink.reverse_double_linkedlist()
 dLink.printLink()

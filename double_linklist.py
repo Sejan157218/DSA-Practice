@@ -38,8 +38,27 @@ class DoubleLinklist:
         newNode.next=head.next
         newNode.prev=head
         head.next=newNode
+    def delete_beginning(self):
+        temp=self.head
+        if temp is None:
+            return "Empty linkedlist"
+        else:
+            self.head=temp.next
+            self.head.prev=None
+            del(temp)
 
-
+    def delete_by_index(self,index):
+        temp=self.head
+        count=0
+        if temp is None:
+            return "Empty linkedlist"
+        else:
+            while count<index:
+                count+=1
+                temp=temp.next
+            temp.prev.next=temp.next
+            temp.next.prev=temp.prev
+            del(temp)
             
             
     def printLink(self):
@@ -68,4 +87,7 @@ dLink.insert_data(5)
 dLink.insert_data(6)
 dLink.insert_at_begging(11)
 dLink.insert_by_index(3,22)
+dLink.delete_beginning()
+dLink.printLink()
+dLink.delete_by_index(3)
 dLink.printLink()

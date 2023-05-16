@@ -40,5 +40,5 @@ tests = [
 ]
 
 for elements in tests:
-    quick_sort(elements, 0, len(elements)-1)
+    quick_sort(elements, -1, len(elements)-1)
     print(f'sorted array: {elements}')
